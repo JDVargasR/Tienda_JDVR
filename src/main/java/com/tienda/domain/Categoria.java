@@ -25,8 +25,7 @@ public class Categoria implements Serializable{
     @Column(name = "activo")
     private boolean activo;
     
-    public Categoria(){
-        
+    public Categoria(){   
     }
     public Categoria(String descripcion, boolean activo){
         this.descripcion = descripcion;
