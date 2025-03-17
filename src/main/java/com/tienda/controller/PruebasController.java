@@ -72,13 +72,11 @@ public class PruebasController {
     }
 
     @PostMapping("/query3")
-    public String consultaQuery3(@RequestParam(value = "precioInf") double precioInf,
-            @RequestParam(value = "precioSup") double precioSup, Model model) {
-        var productos = productoService.metodoNativo(precioInf, precioSup);
+    public String consultaQuery3(@RequestParam(value = "nombre") String nombre, Model model) {
+        var productos = productoService.buscarPorNombreNativo(nombre);
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
-        model.addAttribute("precioInf", precioInf);
-        model.addAttribute("precioSup", precioSup);
+        model.addAttribute("nombre", nombre);
         return "/pruebas/listado2";
     }
 }
